@@ -2,7 +2,7 @@
 
 ## 1 创建一个新的工程
 打开Android Studio，选择Projects>New Project，然后选择Basic Activity.
-![1](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment2/images/1.png)\
+\![1](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment2/images/1.png)\
 点击Next，为应用程序命名（例如：MyApp2），选择Kotlin语言，然后点击Finish。Android Studio将使用系统中最新的API Level创建应用程序，并使用Gradle作为构建系统，在底部的视窗中可以查看整个过程。
 ![2](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment2/images/2.png)\
 ## 2 在模拟器上运行应用程序
