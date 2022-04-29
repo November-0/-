@@ -325,14 +325,14 @@ android:text="@string/hello_second_fragment
 ```
 2. 将按钮移动至界面的底部，完成所有布局之后，如下图所示：
 \
-![22](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment2/images/22.png)\
+![22](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment2/images/22.png)
 
 ### 7.4 检查导航图
 本项目选择Android的Basic Activity类型进行创建，默认情况下自带两个Fragments，并使用Android的导航机制Navigation。导航将使用按钮在两个Fragment之间进行跳转，就第一个Fragment修改后的Random按钮和第二个Fragment的Previous按钮。
 
 打开nav_graph.xml文件（res>navigation>nav_graph.xml），形如：
 \
-![23](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment2/images/23.png)\
+![23](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment2/images/23.png)
 可以任意拖动界面中的元素，观察导航图的变化。
 
 ### 7.5 启用SafeArgs
@@ -406,7 +406,7 @@ view.findViewById<TextView>(R.id.textview_random).text = randomNumber.toString()
 ```
 6. 运行应用程序，查看运行结果。
 \
-![24](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment2/images/24.png)\
+![24](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment2/images/24.png)
 
 
 
