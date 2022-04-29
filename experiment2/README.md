@@ -252,3 +252,166 @@ private fun countMe(view: View) {
 点击Count按钮
 \
 ![21](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment2/images/21.png)\
+
+## 7 完成第二界面的代码
+此步骤将完成按照First Fragment显示数字作为上限，随机在Second Fragment上显示一个数字，即Random按钮的事件响应。
+
+### 7.1 向界面添加TextView显示随机数
+1. 打开fragment_second.xml的设计视图中，当前界面有两个组件，一个Button和一个TextView（textview_second）。
+2. 去掉TextView和Button之间的约束。
+3. 拖动新的TextView至屏幕的中间位置，用来显示随机数。
+4. 设置新的TextView的id为**@+id/textview_random**。
+5. 设置新的TextView的左右约束至屏幕的左右侧，Top约束至textview_second的Bottom，Bottom约束至Button的Top。
+6. 设置TextView的字体颜色textColor属性为**@android:color/white**，textSize为72sp，textStyle为bold。
+7. 设置TextView的显示文字为“R”。
+8. 设置垂直偏移量layout_constraintVertical_bias为0.45。
+
+新增TextView最终的属性代码如下：
+```
+<TextView
+   android:id="@+id/textview_random"
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"
+   android:text="R"
+   android:textColor="@android:color/white"
+   android:textSize="72sp"
+   android:textStyle="bold"
+   app:layout_constraintBottom_toTopOf="@+id/button_second"
+   app:layout_constraintEnd_toEndOf="parent"
+   app:layout_constraintStart_toStartOf="parent"
+   app:layout_constraintTop_toBottomOf="@+id/textview_second"
+   app:layout_constraintVertical_bias="0.45" />
+```
+
+### 7.2 更新显示界面文本的TextView(textview_second)
+1. 在fragment_second.xml文件中，选择textview_second文本框，查看text属性，可见。
+```
+android:text="@string/hello_second_fragment
+```
+对应的strings.xml文本为Hello second fragment. Arg: %1$s
+2. 更改该文本框id为textview_header。
+3. 设置layout_width为**match_parent**，layout_height为**wrap_content**。
+4. 设置top，left和right的margin为24dp，左边距和右边距也就是start和end边距。
+5. 若还存在与Button的约束，则删除。
+6. 向colors.xml添加颜色colorPrimaryDark，并将TextView颜色设置为@color/colorPrimaryDark，字体大小为24sp。
+```
+<color name="colorPrimaryDark">#3700B3</color>
+```
+7. strings.xml文件中，修改`hello_second_fragment`的值为`"Here is a random number between 0 and %d."`
+8. 使用**Refactor>Rename**将`hello_second_fragment` 重构为`random_heading`
+
+因此，显示界面信息的Textview的代码为：
+```
+<TextView
+   android:id="@+id/textview_header"
+   android:layout_width="0dp"
+   android:layout_height="wrap_content"
+   android:layout_marginStart="24dp"
+   android:layout_marginLeft="24dp"
+   android:layout_marginTop="24dp"
+   android:layout_marginEnd="24dp"
+   android:layout_marginRight="24dp"
+   android:text="@string/random_heading"
+   android:textColor="@color/colorPrimaryDark"
+   android:textSize="24sp"
+   app:layout_constraintEnd_toEndOf="parent"
+   app:layout_constraintStart_toStartOf="parent"
+   app:layout_constraintTop_toTopOf="parent" />
+```
+### 7.3 更改界面的背景色和按钮布局
+1. 向colors.xml文件添加第二个Fragment背景色的值，修改fragment_second.xml背景色的属性为screenBackground2。
+```
+<color name="screenBackground2">#26C6DA</color>
+```
+2. 将按钮移动至界面的底部，完成所有布局之后，如下图所示：
+\
+![22](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment2/images/22.png)\
+
+### 7.4 检查导航图
+本项目选择Android的Basic Activity类型进行创建，默认情况下自带两个Fragments，并使用Android的导航机制Navigation。导航将使用按钮在两个Fragment之间进行跳转，就第一个Fragment修改后的Random按钮和第二个Fragment的Previous按钮。
+
+打开nav_graph.xml文件（res>navigation>nav_graph.xml），形如：
+\
+![23](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment2/images/23.png)\
+可以任意拖动界面中的元素，观察导航图的变化。
+
+### 7.5 启用SafeArgs
+SafeArgs 是一个 gradle 插件，它可以帮助您在导航图中输入需要传递的数据信息，作用类似于Activity之间传递数据的Bundle。
+1. 首先打开 **Gradle Scripts > build.gradle (Project: My First App)**
+2. Gradle的Project部分，在plugins节添加
+```
+id 'androidx.navigation.safeargs.kotlin' version '2.5.0-alpha01' apply false
+```
+3. 接着打开  **Gradle Scripts > build.gradle (Module: app) **
+4. module部分在plugins节添加
+```
+id 'androidx.navigation.safeargs'
+```
+5. Android Studio开始同步依赖库
+6. 重新生成工程Build > Make Project
+
+### 7.6 创建导航动作的参数
+1. 打开导航视图，点击FirstFragment，查看其属性。
+2. 在Actions栏中可以看到导航至SecondFragment。
+3. 同理，查看SecondFragment的属性栏。
+4. 点击Arguments **+**符号。
+5. 弹出的对话框中，添加参数myArg，类型为整型Integer。
+
+### 7.7 FirstFragment添加代码，向SecondFragment发数据
+初始应用中，点击FirstFragment的Next/Random按钮将跳转到第二个页面，但没有传递数据。在本步骤中将获取当前TextView中显示的数字并传输至SecondFragment。
+1. 打开FirstFragment.kt源代码文件。
+2. 找到onViewCreated()方法，该方法在onCreateView方法之后被调用，可以实现组件的初始化。找到Random按钮的响应代码，注释掉原先的事件处理代码。
+3. 实例化TextView，获取TextView中文本并转换为整数值。
+```
+val showCountTextView = view.findViewById<TextView>(R.id.textview_first)
+val currentCount = showCountTextView.text.toString().toInt()
+```
+4. 将`currentCount`作为参数传递给actionFirstFragmentToSecondFragment()
+```
+val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(currentCount)
+```
+5. 添加导航事件代码
+```
+findNavController().navigate(action)
+```
+运行代码，点击FirstFragment的Count按钮，然后点击Random按钮，可以看到SecondFragment在头部的TextView已经显示正确的数字，但是屏幕中间还未出现随机数显示。
+
+### 7.8 添加SecondFragment的代码
+本节将更新SecondFragment.kt的代码，接受传递过来的整型参数并进行处理.
+1. 导入navArgs包
+```
+import androidx.navigation.fragment.navArgs
+```
+2. `onViewCreated()`代码之前添加一行
+```
+val args: SecondFragmentArgs by navArgs()
+```
+3. `onViewCreated()`中获取传递过来的参数列表，提取count数值，并在textview_header中显示
+```
+val count = args.myArg
+val countText = getString(R.string.random_heading, count)
+view.findViewById<TextView>(R.id.textview_header).text = countText
+```
+4. 根据count值生成随机数
+```
+val random = java.util.Random()
+var randomNumber = 0
+if (count > 0) {
+   randomNumber = random.nextInt(count + 1)
+}
+```
+5. textview_random中显示count值
+```
+view.findViewById<TextView>(R.id.textview_random).text = randomNumber.toString()
+```
+6. 运行应用程序，查看运行结果。
+\
+![24](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment2/images/24.png)\
+
+
+
+
+
+
+
+
