@@ -148,19 +148,6 @@ df.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -228,19 +215,6 @@ df.tail()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -351,19 +325,6 @@ df.loc[non_numberic_profits].head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -445,7 +406,7 @@ bin_sizes, _, _ = plt.hist(df.year[non_numberic_profits], bins=range(1955, 2006)
 
 
     
-![png](output_33_0.png)
+![output_33_0](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment4/images/output_33_0.png)
     
 
 
@@ -516,7 +477,7 @@ plot(x, y1, ax, 'Increase in mean Fortune 500 company profits from 1955 to 2005'
 
 
     
-![png](output_43_0.png)
+![output_43_0](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment4/images/output_43_0.png)
     
 
 
@@ -531,7 +492,7 @@ plot(x, y2, ax, 'Increase in mean Fortune 500 company revenues from 1955 to 2005
 
 
     
-![png](output_45_0.png)
+![output_45_0](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment4/images/output_45_0.png)
     
 
 
@@ -554,7 +515,7 @@ fig.tight_layout()
 
 
     
-![png](output_47_0.png)
+![output_47_0](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment4/images/output_47_0.png)
     
 
 
