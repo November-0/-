@@ -366,8 +366,8 @@ model.export(export_dir='.')
 ## 4 使用实验三的应用验证生成的模型
 将实验三中(E:\TFLClassify-main\finish\src\main\ml)的模型删掉，并把新训练的模型重命名为`FlowerModel.tflite`，然后右键“start”模块，或者选择File，然后New>Other>TensorFlow Lite Model，选择新训练的模型导入。
 最终效果如下：
-![3](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment5/images/3.png)
-![4](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment5/images/4.png)
+![3](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment5/images/3.jpg)
+![4](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment5/images/4.jpg)
 
 ## 5 将上述完成的Jupyter Notebook在Github上进行共享
 
