@@ -3,21 +3,21 @@
 ## 1 创建一个新的工程
 打开Android Studio，选择Projects>New Project，然后选择Basic Activity.
 \
-![1](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment2/images/1.png)\
+![1](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment2/images/1.png)
 点击Next，为应用程序命名（例如：MyApp2），选择Kotlin语言，然后点击Finish。Android Studio将使用系统中最新的API Level创建应用程序，并使用Gradle作为构建系统，在底部的视窗中可以查看整个过程。
 \
-![2](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment2/images/2.png)\
+![2](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment2/images/2.png)
 ## 2 在模拟器上运行应用程序
 选择Run>Run ‘app’，在工具栏上可以看到运行程序的一些选择项。
 \
-![3](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment2/images/3.png)\
+![3](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment2/images/3.png)
 运行效果：
 \
-![4](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment2/images/4.png)\
+![4](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment2/images/4.png)
 ## 3 查看布局编辑器
 在Basic Activity中，包含了基本的导航组件，Android app关联两个fragments，第一个屏幕显示了“Hello first fragment”由FirstFragment创建，界面元素的排列由布局文件指定，查看res>layout>fragment_first.xml，
 \
-![5](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment2/images/5.png)\
+![5](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment2/images/5.png)
 查看布局的代码（Code），修改Textview的Text属性，
 ```
 android:text="@string/hello_first_fragment"
@@ -42,11 +42,11 @@ android:textStyle="bold"
 ### 4.1 查看视图的布局约束
 在fragment_first.xml，查看TextView组件的约束属性：
 \
-![7](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment2/images/7.png)\
+![7](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment2/images/7.png)
 ### 4.2 添加按钮和约束
 从Palette面板中拖动Button到
 \
-![8](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment2/images/8.png)\
+![8](https://raw.githubusercontent.com/November-0/Software-project-R-amp-D-practice/main/experiment2/images/8.png)
 调整Button的约束，设置Button的Top>BottonOf textView，
 ```
 app:layout_constraintTop_toBottomOf="@+id/textview_first" />
