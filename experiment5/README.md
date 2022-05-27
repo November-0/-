@@ -29,9 +29,9 @@
 - TensorFlow Lite是移动机器学习库，用于在移动设备、微控制器以及其他终端设备上部署模型。
 
 ## 3 按照教程完成基于TensorFlow Lite Model Maker的花卉模型生成
-# 使用TensorFlow Lite Model Maker生成图像分类器模型
+### 使用TensorFlow Lite Model Maker生成图像分类器模型
 
-## 预备工作
+#### 预备工作
 首先安装程序运行必备的一些库。
 
 
@@ -239,8 +239,8 @@ import matplotlib.pyplot as plt
 
 ```
 
-## 模型训练
-### 获取数据
+#### 模型训练
+##### 获取数据
 先从较小的数据集开始训练，当然越多的数据，模型精度更高。
 
 
@@ -258,7 +258,7 @@ print(image_path)
 
 这里从`storage.googleapis.com`中下载了本实验所需要的数据集。`image_path`可以定制，默认是在用户目录的`.keras\datasets`中。
 
-### 运行示例
+##### 运行示例
 一共需4步完成。
 第一步：加载数据集，并将数据集分为训练数据和测试数据。
 
